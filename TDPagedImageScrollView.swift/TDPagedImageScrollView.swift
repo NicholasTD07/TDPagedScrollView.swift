@@ -73,7 +73,7 @@ extension TDPagedImageScrollView: UIScrollViewDelegate {
 }
 
 extension TDPagedImageScrollView {
-    internal func configureWithFakeData() {
+    internal func configureWithColoredViews() {
         let colors: [UIColor] = [
             .blackColor(),
             .whiteColor(),
