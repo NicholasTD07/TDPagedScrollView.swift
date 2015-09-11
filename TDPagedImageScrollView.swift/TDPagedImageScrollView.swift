@@ -32,7 +32,6 @@ extension TDPagedImageScrollView: UIScrollViewDelegate {
 
 extension TDPagedImageScrollView {
     internal func configureWithFakeData() {
-        var views: [UIView] = []
         let colors: [UIColor] = [
             .blackColor(),
             .whiteColor(),
@@ -42,6 +41,8 @@ extension TDPagedImageScrollView {
         ]
 
         map(enumerate(colors)) { (index, color) -> Void in
+            let views = self.scrollView.subviews as! [UIView]
+
             let view = UIView()
             view.backgroundColor = color
 
@@ -57,11 +58,9 @@ extension TDPagedImageScrollView {
                 make.width.equalTo(self.scrollView.snp_width)
                 make.height.equalTo(self.scrollView.snp_height)
             }
-
-            views.append(view)
         }
 
-        if let view = views.last {
+        if let view = self.scrollView.subviews.last as? UIView {
             scrollView.snp_makeConstraints { (make) -> Void in
                 make.right.equalTo(view)
             }
