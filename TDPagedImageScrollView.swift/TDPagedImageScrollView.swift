@@ -55,7 +55,10 @@ extension TDPagedImageScrollView {
     }
 
     private func clearSubviewsInScrollView() {
-        scrollView.subviews.map { $0.removeFromSuperview() }
+        scrollView.subviews.map { view -> Void in
+            view.removeFromSuperview()
+            view.snp_removeConstraints()
+        }
     }
 }
 
