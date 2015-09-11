@@ -18,6 +18,40 @@ extension TDPagedImageScrollView {
     public func configureWithImageURLs(imageURLs: [NSURL]) {
 
     }
+
+    internal func configureWithViews(views: [UIView]) {
+        clearSubviewsInScrollView()
+
+        views.map { view -> Void in
+            let addedViews = self.scrollView.subviews as! [UIView]
+            self.scrollView.addSubview(view)
+
+            view.snp_makeConstraints { (make) -> Void in
+                make.top.equalTo(0)
+                if let lastView = addedViews.last {
+                    make.left.equalTo(lastView.snp_right)
+                } else {
+                    make.left.equalTo(0)
+                }
+                make.width.equalTo(self.scrollView.snp_width)
+                make.height.equalTo(self.scrollView.snp_height)
+            }
+
+        }
+
+        if let view = self.scrollView.subviews.last as? UIView {
+            scrollView.snp_makeConstraints { (make) -> Void in
+                make.right.equalTo(view)
+            }
+        }
+
+        pageControl.numberOfPages = views.count
+
+    }
+
+    private func clearSubviewsInScrollView() {
+        scrollView.subviews.map { $0.removeFromSuperview() }
+    }
 }
 
 extension TDPagedImageScrollView: UIScrollViewDelegate {
@@ -40,33 +74,15 @@ extension TDPagedImageScrollView {
             .blackColor(),
         ]
 
-        map(enumerate(colors)) { (index, color) -> Void in
-            let views = self.scrollView.subviews as! [UIView]
-
+        let views = map(colors) { color -> UIView in
             let view = UIView()
+
             view.backgroundColor = color
 
-            self.scrollView.addSubview(view)
-
-            view.snp_makeConstraints { (make) -> Void in
-                make.top.equalTo(0)
-                if let lastView = views.last {
-                    make.left.equalTo(lastView.snp_right)
-                } else {
-                    make.left.equalTo(0)
-                }
-                make.width.equalTo(self.scrollView.snp_width)
-                make.height.equalTo(self.scrollView.snp_height)
-            }
+            return view
         }
 
-        if let view = self.scrollView.subviews.last as? UIView {
-            scrollView.snp_makeConstraints { (make) -> Void in
-                make.right.equalTo(view)
-            }
-        }
-
-        pageControl.numberOfPages = colors.count
+        configureWithViews(views)
     }
 }
 
