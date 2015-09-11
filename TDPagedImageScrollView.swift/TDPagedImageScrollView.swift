@@ -46,7 +46,6 @@ extension TDPagedImageScrollView {
         }
 
         pageControl.numberOfPages = views.count
-
     }
 
     private func clearSubviewsInScrollView() {
@@ -76,9 +75,7 @@ extension TDPagedImageScrollView {
 
         let views = map(colors) { color -> UIView in
             let view = UIView()
-
             view.backgroundColor = color
-
             return view
         }
 
