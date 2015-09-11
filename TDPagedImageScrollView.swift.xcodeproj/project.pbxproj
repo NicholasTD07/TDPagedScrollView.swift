@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7562C8AD1BA1A75300EB1487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8AC1BA1A75300EB1487 /* AppDelegate.swift */; };
-		7562C8AF1BA1A75300EB1487 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8AE1BA1A75300EB1487 /* RootViewController.swift */; };
-		7562C8B11BA1A75300EB1487 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8B01BA1A75300EB1487 /* DataViewController.swift */; };
-		7562C8B31BA1A75300EB1487 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8B21BA1A75300EB1487 /* ModelController.swift */; };
-		7562C8B61BA1A75300EB1487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7562C8B41BA1A75300EB1487 /* Main.storyboard */; };
 		7562C8B81BA1A75300EB1487 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7562C8B71BA1A75300EB1487 /* Images.xcassets */; };
 		7562C8BB1BA1A75300EB1487 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7562C8B91BA1A75300EB1487 /* LaunchScreen.xib */; };
 		7562C8C71BA1A75300EB1487 /* TDPagedImageScrollView_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8C61BA1A75300EB1487 /* TDPagedImageScrollView_swiftTests.swift */; };
+		7562C8D21BA1A9EA00EB1487 /* TDPagedImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562C8D11BA1A9EA00EB1487 /* TDPagedImageScrollView.swift */; };
+		7562C8D51BA1AF1B00EB1487 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; };
+		7562C8D61BA1AF1C00EB1487 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; };
+		7562C8D91BA1AF4600EB1487 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7562C8DB1BA1AF4600EB1487 /* WebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +28,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7562C8DC1BA1AF4600EB1487 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7562C8D91BA1AF4600EB1487 /* SnapKit.framework in Embed Frameworks */,
+				7562C8DB1BA1AF4600EB1487 /* WebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7562C8A71BA1A75300EB1487 /* TDPagedImageScrollView.swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDPagedImageScrollView.swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7562C8AB1BA1A75300EB1487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7562C8AC1BA1A75300EB1487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7562C8AE1BA1A75300EB1487 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		7562C8B01BA1A75300EB1487 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		7562C8B21BA1A75300EB1487 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		7562C8B51BA1A75300EB1487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7562C8B71BA1A75300EB1487 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7562C8BA1BA1A75300EB1487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7562C8C01BA1A75300EB1487 /* TDPagedImageScrollView.swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDPagedImageScrollView.swiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7562C8C51BA1A75300EB1487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7562C8C61BA1A75300EB1487 /* TDPagedImageScrollView_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDPagedImageScrollView_swiftTests.swift; sourceTree = "<group>"; };
+		7562C8D11BA1A9EA00EB1487 /* TDPagedImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPagedImageScrollView.swift; sourceTree = "<group>"; };
+		7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		7562C8D41BA1AF1B00EB1487 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7562C8D51BA1AF1B00EB1487 /* SnapKit.framework in Frameworks */,
+				7562C8D61BA1AF1C00EB1487 /* WebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				7562C8A91BA1A75300EB1487 /* TDPagedImageScrollView.swift */,
-				7562C8C31BA1A75300EB1487 /* TDPagedImageScrollView.swiftTests */,
+				7562C8D01BA1A75F00EB1487 /* Demo */,
+				7562C8C31BA1A75300EB1487 /* Tests */,
+				7562C8D71BA1AF2300EB1487 /* Frameworks */,
 				7562C8A81BA1A75300EB1487 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,14 +100,7 @@
 		7562C8A91BA1A75300EB1487 /* TDPagedImageScrollView.swift */ = {
 			isa = PBXGroup;
 			children = (
-				7562C8AC1BA1A75300EB1487 /* AppDelegate.swift */,
-				7562C8AE1BA1A75300EB1487 /* RootViewController.swift */,
-				7562C8B01BA1A75300EB1487 /* DataViewController.swift */,
-				7562C8B21BA1A75300EB1487 /* ModelController.swift */,
-				7562C8B41BA1A75300EB1487 /* Main.storyboard */,
-				7562C8B71BA1A75300EB1487 /* Images.xcassets */,
-				7562C8B91BA1A75300EB1487 /* LaunchScreen.xib */,
-				7562C8AA1BA1A75300EB1487 /* Supporting Files */,
+				7562C8D11BA1A9EA00EB1487 /* TDPagedImageScrollView.swift */,
 			);
 			path = TDPagedImageScrollView.swift;
 			sourceTree = "<group>";
@@ -101,12 +113,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7562C8C31BA1A75300EB1487 /* TDPagedImageScrollView.swiftTests */ = {
+		7562C8C31BA1A75300EB1487 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				7562C8C61BA1A75300EB1487 /* TDPagedImageScrollView_swiftTests.swift */,
 				7562C8C41BA1A75300EB1487 /* Supporting Files */,
 			);
+			name = Tests;
 			path = TDPagedImageScrollView.swiftTests;
 			sourceTree = "<group>";
 		};
@@ -116,6 +129,27 @@
 				7562C8C51BA1A75300EB1487 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7562C8D01BA1A75F00EB1487 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				7562C8AC1BA1A75300EB1487 /* AppDelegate.swift */,
+				7562C8B71BA1A75300EB1487 /* Images.xcassets */,
+				7562C8B91BA1A75300EB1487 /* LaunchScreen.xib */,
+				7562C8AA1BA1A75300EB1487 /* Supporting Files */,
+			);
+			name = Demo;
+			path = TDPagedImageScrollView.swift;
+			sourceTree = "<group>";
+		};
+		7562C8D71BA1AF2300EB1487 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */,
+				7562C8D41BA1AF1B00EB1487 /* WebImage.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +162,7 @@
 				7562C8A31BA1A75300EB1487 /* Sources */,
 				7562C8A41BA1A75300EB1487 /* Frameworks */,
 				7562C8A51BA1A75300EB1487 /* Resources */,
+				7562C8DC1BA1AF4600EB1487 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7562C8B61BA1A75300EB1487 /* Main.storyboard in Resources */,
 				7562C8BB1BA1A75300EB1487 /* LaunchScreen.xib in Resources */,
 				7562C8B81BA1A75300EB1487 /* Images.xcassets in Resources */,
 			);
@@ -218,10 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7562C8AF1BA1A75300EB1487 /* RootViewController.swift in Sources */,
-				7562C8B31BA1A75300EB1487 /* ModelController.swift in Sources */,
-				7562C8B11BA1A75300EB1487 /* DataViewController.swift in Sources */,
 				7562C8AD1BA1A75300EB1487 /* AppDelegate.swift in Sources */,
+				7562C8D21BA1A9EA00EB1487 /* TDPagedImageScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +276,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7562C8B41BA1A75300EB1487 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7562C8B51BA1A75300EB1487 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7562C8B91BA1A75300EB1487 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +308,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -329,6 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -348,7 +374,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TDPagedImageScrollView.swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,7 +389,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TDPagedImageScrollView.swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
