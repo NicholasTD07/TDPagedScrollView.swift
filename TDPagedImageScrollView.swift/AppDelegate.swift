@@ -11,25 +11,54 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let controller = UIViewController()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    let scrollView = TDPagedImageScrollView()
+    lazy var controller: UIViewController = {
+        let controller = UIViewController()
 
-        let scrollView = TDPagedImageScrollView()
+        let superView = controller.view
+        let reloadButton = UIButton()
 
-        controller.view.addSubview(scrollView)
-        scrollView.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(controller.view)
+        reloadButton.setTitle("Reload", forState: .Normal)
+        reloadButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        reloadButton.addTarget(
+            self,
+            action: "reloadScrollViewWithFakeData",
+            forControlEvents: .TouchUpInside
+        )
+
+        superView.addSubview(reloadButton)
+        superView.addSubview(self.scrollView)
+
+        reloadButton.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(superView).offset(20) // statusBar
+            make.left.right.equalTo(superView)
+        }
+        self.scrollView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(reloadButton.snp_bottom)
+            make.left.right.bottom.equalTo(superView)
         }
 
         controller.view.backgroundColor = .whiteColor()
-        scrollView.configureWithFakeData()
+        self.scrollView.configureWithFakeData()
+
+        return controller
+    }()
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
 
         return true
+    }
+}
+
+extension AppDelegate {
+    func reloadScrollViewWithFakeData() {
+        scrollView.configureWithFakeData()
+        println("Reloaded scrollView with fake data.")
     }
 }
 
