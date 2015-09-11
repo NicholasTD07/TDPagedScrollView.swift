@@ -63,7 +63,7 @@ extension TDPagedImageScrollView {
 
 extension TDPagedImageScrollView {
     // MARK: Setup methods
-    func setupViews() {
+    internal func setupViews() {
         let superView = self
         let views = [
             scrollView,
@@ -75,7 +75,7 @@ extension TDPagedImageScrollView {
         setupConstaints()
     }
 
-    func setupConstaints() {
+    internal func setupConstaints() {
         let superView = self
 
         scrollView.snp_makeConstraints { (make) -> Void in
