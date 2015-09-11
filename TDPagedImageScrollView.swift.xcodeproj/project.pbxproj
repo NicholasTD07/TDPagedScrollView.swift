@@ -155,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7562C8A61BA1A75300EB1487 /* TDPagedImageScrollView.swift */ = {
+		7562C8A61BA1A75300EB1487 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7562C8CA1BA1A75300EB1487 /* Build configuration list for PBXNativeTarget "TDPagedImageScrollView.swift" */;
+			buildConfigurationList = 7562C8CA1BA1A75300EB1487 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				7562C8A31BA1A75300EB1487 /* Sources */,
 				7562C8A41BA1A75300EB1487 /* Frameworks */,
@@ -168,7 +168,7 @@
 			);
 			dependencies = (
 			);
-			name = TDPagedImageScrollView.swift;
+			name = Demo;
 			productName = TDPagedImageScrollView.swift;
 			productReference = 7562C8A71BA1A75300EB1487 /* TDPagedImageScrollView.swift.app */;
 			productType = "com.apple.product-type.application";
@@ -222,7 +222,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7562C8A61BA1A75300EB1487 /* TDPagedImageScrollView.swift */,
+				7562C8A61BA1A75300EB1487 /* Demo */,
 				7562C8BF1BA1A75300EB1487 /* TDPagedImageScrollView.swiftTests */,
 			);
 		};
@@ -270,7 +270,7 @@
 /* Begin PBXTargetDependency section */
 		7562C8C21BA1A75300EB1487 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7562C8A61BA1A75300EB1487 /* TDPagedImageScrollView.swift */;
+			target = 7562C8A61BA1A75300EB1487 /* Demo */;
 			targetProxy = 7562C8C11BA1A75300EB1487 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -446,13 +446,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7562C8CA1BA1A75300EB1487 /* Build configuration list for PBXNativeTarget "TDPagedImageScrollView.swift" */ = {
+		7562C8CA1BA1A75300EB1487 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7562C8CB1BA1A75300EB1487 /* Debug */,
 				7562C8CC1BA1A75300EB1487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7562C8CD1BA1A75300EB1487 /* Build configuration list for PBXNativeTarget "TDPagedImageScrollView.swiftTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +462,7 @@
 				7562C8CF1BA1A75300EB1487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
