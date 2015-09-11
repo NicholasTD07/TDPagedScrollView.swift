@@ -12,11 +12,17 @@ import WebImage
 
 extension TDPagedImageScrollView {
     public func configureWithImages(images: [UIImage]) {
-
+        let views = images.map { return UIImageView(image: $0) }
+        configureWithViews(views)
     }
 
     public func configureWithImageURLs(imageURLs: [NSURL]) {
-
+        let views = imageURLs.map { URL -> UIImageView in
+            let view = UIImageView()
+            view.sd_setImageWithURL(URL)
+            return view
+        }
+        configureWithViews(views)
     }
 
     internal func configureWithViews(views: [UIView]) {
