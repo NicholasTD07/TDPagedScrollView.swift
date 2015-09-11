@@ -54,6 +54,10 @@ extension TDPagedImageScrollView {
                 make.right.equalTo(view)
             }
         }
+
+        pageControl.numberOfPages = colors.count
+        pageControl.pageIndicatorTintColor = .grayColor()
+        pageControl.currentPageIndicatorTintColor = .blueColor()
     }
 }
 
