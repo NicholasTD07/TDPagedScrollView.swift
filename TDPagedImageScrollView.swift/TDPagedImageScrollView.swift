@@ -68,8 +68,6 @@ extension TDPagedImageScrollView {
         }
 
         pageControl.numberOfPages = colors.count
-        pageControl.pageIndicatorTintColor = .grayColor()
-        pageControl.currentPageIndicatorTintColor = .blueColor()
     }
 }
 
@@ -110,7 +108,14 @@ public class TDPagedImageScrollView: UIView {
 
         return scrollView
     }()
-    public lazy var pageControl = UIPageControl()
+    public lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+
+        pageControl.pageIndicatorTintColor = UIColor(white: 0.5, alpha: 0.5)
+        pageControl.currentPageIndicatorTintColor = .whiteColor()
+
+        return pageControl
+    }()
 
     // MARK: `init` funcs
     public required init(coder aDecoder: NSCoder) {
