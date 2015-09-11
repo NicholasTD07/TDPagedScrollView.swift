@@ -20,6 +20,14 @@ extension TDPagedImageScrollView {
     }
 }
 
+extension TDPagedImageScrollView: UIScrollViewDelegate {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.size.width
+        let page = Int(floor((scrollView.contentOffset.x - pageWidth * 0.5)/pageWidth + 1))
+        pageControl.currentPage = page
+    }
+}
+
 extension TDPagedImageScrollView {
     internal func configureWithFakeData() {
         var views: [UIView] = []
@@ -94,6 +102,7 @@ public class TDPagedImageScrollView: UIView {
         let scrollView = UIScrollView()
 
         scrollView.pagingEnabled = true
+        scrollView.delegate = self
 
         return scrollView
     }()
