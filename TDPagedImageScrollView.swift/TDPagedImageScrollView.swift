@@ -23,8 +23,10 @@ extension TDPagedImageScrollView {
 extension TDPagedImageScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
-        let page = Int(floor((scrollView.contentOffset.x - pageWidth * 0.5)/pageWidth + 1))
-        pageControl.currentPage = page
+        let xOffsetRelativeToPageWidth = scrollView.contentOffset.x/pageWidth
+
+        // Update when scrolling to more than 50% of the previous/next page
+        pageControl.currentPage = Int(floor(xOffsetRelativeToPageWidth + 0.5))
     }
 }
 
