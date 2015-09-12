@@ -10,22 +10,30 @@ import UIKit
 import SnapKit
 import WebImage
 
+private let URLToImageView: NSURL -> UIImageView = { URL -> UIImageView in
+    let view = UIImageView()
+    view.sd_setImageWithURL(URL)
+    return view
+}
+
 extension TDPagedImageScrollView {
-    public func configureWithImages(images: [UIImage]) {
-        let views = images.map { return UIImageView(image: $0) }
+    public func configureWithImages(images: [UIImage], infiniteLoop: Bool = false) {
+        self.infiniteLoop = infiniteLoop
+
+        var views = images.map { return UIImageView(image: $0) }
+
         configureWithViews(views)
     }
 
-    public func configureWithImageURLs(imageURLs: [NSURL]) {
-        let views = imageURLs.map { URL -> UIImageView in
-            let view = UIImageView()
-            view.sd_setImageWithURL(URL)
-            return view
-        }
+    public func configureWithImageURLs(imageURLs: [NSURL], infiniteLoop: Bool = false) {
+        self.infiniteLoop = infiniteLoop
+
+        var views = imageURLs.map(URLToImageView)
+
         configureWithViews(views)
     }
 
-    internal func configureWithViews(views: [UIView]) {
+    internal func configureWithViews(var views: [UIView]) {
         clearSubviewsInScrollView()
 
         let superView = containerView
@@ -52,7 +60,14 @@ extension TDPagedImageScrollView {
             }
         }
 
-        pageControl.numberOfPages = views.count
+        if infiniteLoop {
+            pageControl.numberOfPages = views.count - 2
+            let x = frame.size.width * 1
+            let origin = CGPoint(x: x, y: 0)
+            scrollView.contentOffset = origin
+        } else {
+            pageControl.numberOfPages = views.count
+        }
     }
 
     private func clearSubviewsInScrollView() {
@@ -66,27 +81,66 @@ extension TDPagedImageScrollView {
 extension TDPagedImageScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
+        let atStartOfPage = scrollView.contentOffset.x % pageWidth == 0
+
+        // TODO: Need a DataSource/Handler class/struct to handle
+        //       the whole thinking in this method
+        //       A. Scroll to the "first"/"last" view?
+        //       B. Get current page for `pageControl`
+        // HACK: Super low CPU usage
+        if !atStartOfPage {
+            return
+        }
+
         let xOffsetRelativeToPageWidth = scrollView.contentOffset.x/pageWidth
 
         // Update when scrolling to more than 50% of the previous/next page
-        pageControl.currentPage = Int(floor(xOffsetRelativeToPageWidth + 0.5))
+        let currentPage = Int(floor(xOffsetRelativeToPageWidth + 0.5))
+        if infiniteLoop {
+            let atStartOfPage = scrollView.contentOffset.x % pageWidth == 0
+            if atStartOfPage {
+                let size = frame.size
+                let superView = containerView
+                let viewsCount = superView.subviews.count
+                pageControl.currentPage = currentPage - 1
+
+                if currentPage == 0 { // go to last(actual second last) view
+                    let rect = superView.subviews[viewsCount - 2].frame
+                    scrollView.scrollRectToVisible(rect, animated: false)
+                } else if currentPage == viewsCount - 1 { // go to first(actual second) view
+                    let rect = superView.subviews[1].frame
+                    scrollView.scrollRectToVisible(rect, animated: false)
+                }
+            }
+        } else {
+            pageControl.currentPage = currentPage
+        }
     }
 }
 
 extension TDPagedImageScrollView {
-    internal func configureWithColoredViews() {
+    internal func configureWithColoredViews(infiniteLoop: Bool = false) {
+        self.infiniteLoop = infiniteLoop
+
         let colors: [UIColor] = [
-            .blackColor(),
+            UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
             .whiteColor(),
             .blackColor(),
             .grayColor(),
-            .blackColor(),
+            UIColor(red: 0.9862, green: 0.7797, blue: 0.0, alpha: 1.0),
         ]
 
-        let views = map(colors) { color -> UIView in
+        let colorToView: UIColor -> UIView = { color -> UIView in
             let view = UIView()
             view.backgroundColor = color
             return view
+        }
+
+        var views = colors.map(colorToView)
+
+        if let firstColor = colors.first, lastColor = colors.last where infiniteLoop {
+            views.insert(colorToView(lastColor), atIndex: 0)
+            views.append(colorToView(firstColor))
         }
 
         configureWithViews(views)
@@ -126,6 +180,8 @@ extension TDPagedImageScrollView {
 }
 
 public class TDPagedImageScrollView: UIView {
+    public var infiniteLoop = false
+
     // MARK: UI vars
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
