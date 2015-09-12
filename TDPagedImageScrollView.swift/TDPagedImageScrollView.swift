@@ -28,9 +28,10 @@ extension TDPagedImageScrollView {
     internal func configureWithViews(views: [UIView]) {
         clearSubviewsInScrollView()
 
+        let superView = scrollView
         views.map { view -> Void in
-            let addedViews = self.scrollView.subviews as! [UIView]
-            self.scrollView.addSubview(view)
+            let addedViews = superView.subviews as! [UIView]
+            superView.addSubview(view)
 
             view.snp_makeConstraints { (make) -> Void in
                 make.top.equalTo(0)
@@ -39,14 +40,14 @@ extension TDPagedImageScrollView {
                 } else {
                     make.left.equalTo(0)
                 }
-                make.width.equalTo(self.scrollView.snp_width)
-                make.height.equalTo(self.scrollView.snp_height)
+                make.width.equalTo(superView)
+                make.height.equalTo(superView)
             }
 
         }
 
-        if let view = self.scrollView.subviews.last as? UIView {
-            scrollView.snp_makeConstraints { (make) -> Void in
+        if let view = superView.subviews.last as? UIView {
+            superView.snp_makeConstraints { (make) -> Void in
                 make.right.equalTo(view)
             }
         }
