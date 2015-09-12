@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     func reloadScrollViewWithColoredViews() {
-        scrollView.configureWithColoredViews()
+        scrollView.configureWithColoredViews(infiniteLoop: true)
         println("Reloaded scrollView with colored views.")
     }
 
