@@ -1,15 +1,17 @@
 //
-//  TDPagedImageScrollView_swiftTests.swift
-//  TDPagedImageScrollView.swiftTests
+//  TDPagedScrollViewTests.swift
+//  TDPagedScrollViewTests
 //
-//  Created by Nicholas Tian on 10/09/2015.
+//  Created by Nicholas Tian on 13/09/2015.
 //  Copyright (c) 2015 nickTD. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class TDPagedImageScrollView_swiftTests: XCTestCase {
+// TODO: UI Tests
+
+class TDPagedScrollViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

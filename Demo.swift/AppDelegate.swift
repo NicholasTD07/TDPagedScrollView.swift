@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TDPagedScrollView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return buttons
     }()
 
-    let scrollView = TDPagedImageScrollView()
+    let scrollView = TDPagedScrollView()
     lazy var controller: UIViewController = {
         let controller = UIViewController()
 
@@ -65,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         controller.view.backgroundColor = .whiteColor()
-        self.scrollView.configureWithColoredViews   ()
+        self.scrollView.configureWithColoredViews()
 
         return controller
     }()

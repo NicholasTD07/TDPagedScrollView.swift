@@ -16,7 +16,7 @@ private let URLToImageView: NSURL -> UIImageView = { URL -> UIImageView in
     return view
 }
 
-extension TDPagedImageScrollView {
+extension TDPagedScrollView {
     public func configureWithImages(images: [UIImage], infiniteLoop: Bool = false) {
         self.infiniteLoop = infiniteLoop
 
@@ -78,7 +78,7 @@ extension TDPagedImageScrollView {
     }
 }
 
-extension TDPagedImageScrollView: UIScrollViewDelegate {
+extension TDPagedScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let atStartOfPage = scrollView.contentOffset.x % pageWidth == 0
@@ -118,36 +118,7 @@ extension TDPagedImageScrollView: UIScrollViewDelegate {
     }
 }
 
-extension TDPagedImageScrollView {
-    internal func configureWithColoredViews(infiniteLoop: Bool = false) {
-        self.infiniteLoop = infiniteLoop
-
-        let colors: [UIColor] = [
-            UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
-            .whiteColor(),
-            .blackColor(),
-            .grayColor(),
-            UIColor(red: 0.9862, green: 0.7797, blue: 0.0, alpha: 1.0),
-        ]
-
-        let colorToView: UIColor -> UIView = { color -> UIView in
-            let view = UIView()
-            view.backgroundColor = color
-            return view
-        }
-
-        var views = colors.map(colorToView)
-
-        if let firstColor = colors.first, lastColor = colors.last where infiniteLoop {
-            views.insert(colorToView(lastColor), atIndex: 0)
-            views.append(colorToView(firstColor))
-        }
-
-        configureWithViews(views)
-    }
-}
-
-extension TDPagedImageScrollView {
+extension TDPagedScrollView {
     // MARK: Setup methods
     internal func setupViews() {
         let superView = self
@@ -179,7 +150,7 @@ extension TDPagedImageScrollView {
     }
 }
 
-public class TDPagedImageScrollView: UIView {
+public class TDPagedScrollView: UIView {
     public var infiniteLoop = false
 
     // MARK: UI vars
