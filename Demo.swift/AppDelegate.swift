@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var buttons: [UIButton] = {
         let titlesAndActions = [
-            ("Colored Views", "reloadScrollViewWithColoredViews"),
+            ("Looping Colored Views", "reloadScrollViewWithColoredViews"),
             ("Image URLs", "reloadWithImageURLs"),
         ]
         let buttons = map(enumerate(titlesAndActions)) { index, titleAndAction -> UIButton in
