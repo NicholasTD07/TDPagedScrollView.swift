@@ -28,7 +28,7 @@ extension TDPagedImageScrollView {
     internal func configureWithViews(views: [UIView]) {
         clearSubviewsInScrollView()
 
-        let superView = scrollView
+        let superView = containerView
         views.map { view -> Void in
             let addedViews = superView.subviews as! [UIView]
             superView.addSubview(view)
@@ -40,8 +40,8 @@ extension TDPagedImageScrollView {
                 } else {
                     make.left.equalTo(0)
                 }
-                make.width.equalTo(superView)
-                make.height.equalTo(superView)
+                make.width.equalTo(self.scrollView)
+                make.height.equalTo(self.scrollView)
             }
 
         }
@@ -56,7 +56,7 @@ extension TDPagedImageScrollView {
     }
 
     private func clearSubviewsInScrollView() {
-        scrollView.subviews.map { view -> Void in
+        containerView.subviews.map { view -> Void in
             view.removeFromSuperview()
             view.snp_removeConstraints()
         }
@@ -114,6 +114,11 @@ extension TDPagedImageScrollView {
             make.edges.equalTo(superView)
         }
 
+        containerView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(scrollView)
+            make.height.equalTo(scrollView)
+        }
+
         pageControl.snp_makeConstraints { (make) -> Void in
             make.centerX.bottom.equalTo(scrollView)
         }
@@ -128,6 +133,8 @@ public class TDPagedImageScrollView: UIView {
         scrollView.pagingEnabled = true
         scrollView.delegate = self
 
+        scrollView.addSubview(self.containerView)
+
         return scrollView
     }()
     public lazy var pageControl: UIPageControl = {
@@ -138,6 +145,7 @@ public class TDPagedImageScrollView: UIView {
 
         return pageControl
     }()
+    private lazy var containerView = UIView()
 
     // MARK: `init` funcs
     public required init(coder aDecoder: NSCoder) {
