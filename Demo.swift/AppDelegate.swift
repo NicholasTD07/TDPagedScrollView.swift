@@ -104,7 +104,7 @@ extension AppDelegate {
             "http://httpbin.org/image/png",
             "http://httpbin.org/image/jpeg",
         ].map { return NSURL(string: $0)! }
-        scrollView.configureWithImageURLs(URLs)
+        scrollView.configureWithImageURLs(URLs, infiniteLoop: true)
         println("Reloaded scrollView with image URLs.")
     }
 }
