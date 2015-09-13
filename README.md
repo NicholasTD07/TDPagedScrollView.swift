@@ -4,9 +4,9 @@
 
 <img src="./Graphics/showcase.gif" alt="Demo app" width="320">
 
-This is a UI widget for showing views/images in a `UIScrollView` with
+This is a UI widget for showing views/images in a `UIScrollView` with a
 `UIPageControl` on the bottom of the scroll view. It can also be configured to
-show the views/images in a head tail connected looping way, like the scroll view
+show views or images in a head tail connected looping way, like the scroll view
 at the top of the App Store.
 
 ## Setup
@@ -22,7 +22,7 @@ and then run `carthage update`.
 
 ## Usage
 
-Add `import TDPagedScrollView` in your source code if you used Carthage.
+Add `import TDPagedScrollView` in your source code if you are using Carthage.
 
 `TDPagedScrollView` is a subclass of `UIView`. You can use it like any other
 subclasses of `UIView`.
@@ -43,6 +43,12 @@ itself or the `UIPageControl`. You can modify any property on those two views
 through the public properties in `TDPagedScrollView`: `scrollView` and
 `pageControl` which are instances of `UIScrollView` and `UIPageControl`,
 respectively.
+
+## Contribution
+
+Any feedback, feature request or pull request are welcomed. If you want help to
+make this framework better, have a look at the Issues page to see if there's
+anything you can help with. :)
 
 ## Demo iOS app
 
