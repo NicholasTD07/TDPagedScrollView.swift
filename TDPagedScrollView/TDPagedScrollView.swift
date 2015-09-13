@@ -173,8 +173,9 @@ public class TDPagedScrollView: UIView {
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
 
-        scrollView.pagingEnabled = true
         scrollView.delegate = self
+        scrollView.pagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
 
         scrollView.addSubview(self.containerView)
 
