@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 make.width.equalTo(superView).dividedBy(self.buttons.count)
                 if let lastButton = lastButton {
                     make.left.equalTo(lastButton.snp_right)
-                    make.bottom.equalTo(lastButton)
                 } else {
                     make.left.equalTo(superView)
                 }
