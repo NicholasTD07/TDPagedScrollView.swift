@@ -23,6 +23,8 @@
 		75EC83081BA4F21100F7C448 /* WebImage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75EC83091BA4F23400F7C448 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; };
 		75EC830A1BA4F23400F7C448 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75EC830B1BA4F6B100F7C448 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; };
+		75EC830C1BA4F6B100F7C448 /* WebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				75EC830C1BA4F6B100F7C448 /* WebImage.framework in Embed Frameworks */,
 				75EC82FA1BA4F08A00F7C448 /* TDPagedScrollView.framework in Embed Frameworks */,
 				75EC830A1BA4F23400F7C448 /* SnapKit.framework in Embed Frameworks */,
 			);
@@ -99,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EC830B1BA4F6B100F7C448 /* WebImage.framework in Frameworks */,
 				75EC82F91BA4F08A00F7C448 /* TDPagedScrollView.framework in Frameworks */,
 				75EC83091BA4F23400F7C448 /* SnapKit.framework in Frameworks */,
 			);

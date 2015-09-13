@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SnapKit
+import WebImage
+
 import TDPagedScrollView
 
 @UIApplicationMain
@@ -14,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var buttons: [UIButton] = {
         let titlesAndActions = [
-            ("Looping Colored Views", "reloadScrollViewWithColoredViews"),
+            ("Colored Views", "reloadScrollViewWithColoredViews"),
             ("Image URLs", "reloadWithImageURLs"),
+            ("Images", "reloadWithImages"),
         ]
         let buttons = map(enumerate(titlesAndActions)) { index, titleAndAction -> UIButton in
             let button = UIButton()
@@ -89,6 +93,14 @@ private let colors: [UIColor] = [
     UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
 ]
 
+private let URLs = [
+    "http://httpbin.org/image/jpeg",
+    "http://httpbin.org/image/png",
+    "http://httpbin.org/image/jpeg",
+    "http://httpbin.org/image/png",
+    "http://httpbin.org/image/jpeg",
+].map { return NSURL(string: $0)! }
+
 
 extension AppDelegate {
     func reloadScrollViewWithColoredViews() {
@@ -97,15 +109,19 @@ extension AppDelegate {
     }
 
     func reloadWithImageURLs() {
-        let URLs = [
-            "http://httpbin.org/image/jpeg",
-            "http://httpbin.org/image/png",
-            "http://httpbin.org/image/jpeg",
-            "http://httpbin.org/image/png",
-            "http://httpbin.org/image/jpeg",
-        ].map { return NSURL(string: $0)! }
         scrollView.configureWithImageURLs(URLs, infiniteLoop: true)
         println("Reloaded scrollView with image URLs.")
+    }
+
+    func reloadWithImages() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            let images = URLs.map { UIImage(data: NSData(contentsOfURL: $0)!)! }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.scrollView.configureWithImages(images, infiniteLoop: true)
+                println("Reloaded scrollView with images")
+            }
+        }
+        println("Reloading scrollView with images")
     }
 }
 
