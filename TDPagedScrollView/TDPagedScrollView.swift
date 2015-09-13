@@ -18,23 +18,23 @@ private let URLToImageView: NSURL -> UIImageView = { URL -> UIImageView in
 
 extension TDPagedScrollView {
     public func configureWithImages(images: [UIImage], infiniteLoop: Bool = false) {
-        self.infiniteLoop = infiniteLoop
 
         var views = images.map { return UIImageView(image: $0) }
 
-        configureWithViews(views)
+        configureWithViews(views, infiniteLoop: infiniteLoop)
     }
 
     public func configureWithImageURLs(imageURLs: [NSURL], infiniteLoop: Bool = false) {
-        self.infiniteLoop = infiniteLoop
 
         var views = imageURLs.map(URLToImageView)
 
-        configureWithViews(views)
+        configureWithViews(views, infiniteLoop: infiniteLoop)
     }
 
-    internal func configureWithViews(var views: [UIView]) {
+    public func configureWithViews(var views: [UIView], infiniteLoop: Bool = false) {
         clearSubviewsInScrollView()
+
+        self.infiniteLoop = infiniteLoop
 
         let superView = containerView
         views.map { view -> Void in
