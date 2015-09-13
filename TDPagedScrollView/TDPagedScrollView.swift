@@ -16,6 +16,14 @@ private let URLToImageView: NSURL -> UIImageView = { URL -> UIImageView in
     return view
 }
 
+// TODOs:
+//   1. Need a DataSource/Handler class/struct to handle
+//       the whole thinking in `scrollViewDidScroll`
+//       A. Scroll to the "first"/"last" view?
+//       B. Get current page for `pageControl`
+//   2. Split the infinite version and the non-infinite version
+//   3. TDPagedScrollView can be a `UIScrollView`
+
 extension TDPagedScrollView {
     public func configureWithImages(var images: [UIImage], infiniteLoop: Bool = false) {
 
@@ -95,10 +103,6 @@ extension TDPagedScrollView: UIScrollViewDelegate {
         let pageWidth = scrollView.frame.size.width
         let atStartOfPage = scrollView.contentOffset.x % pageWidth == 0
 
-        // TODO: Need a DataSource/Handler class/struct to handle
-        //       the whole thinking in this method
-        //       A. Scroll to the "first"/"last" view?
-        //       B. Get current page for `pageControl`
         // HACK: Super low CPU usage
         if !atStartOfPage {
             return
