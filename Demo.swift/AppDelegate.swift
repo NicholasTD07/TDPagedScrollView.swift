@@ -81,9 +81,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+private let colors: [UIColor] = [
+    UIColor(red: 0.9862, green: 0.7797, blue: 0.0, alpha: 1.0),
+    .whiteColor(),
+    .blackColor(),
+    .grayColor(),
+    UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
+]
+
+
 extension AppDelegate {
     func reloadScrollViewWithColoredViews() {
-        scrollView.configureWithColoredViews(infiniteLoop: true)
+        scrollView.configureWithColoredViews(colors: colors, infiniteLoop: true)
         println("Reloaded scrollView with colored views.")
     }
 

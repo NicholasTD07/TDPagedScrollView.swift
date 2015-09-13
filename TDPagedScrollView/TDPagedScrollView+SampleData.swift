@@ -8,18 +8,17 @@
 
 import UIKit
 
+private let colors: [UIColor] = [
+    UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
+    .whiteColor(),
+    .blackColor(),
+    .grayColor(),
+    UIColor(red: 0.9862, green: 0.7797, blue: 0.0, alpha: 1.0),
+]
+
+
 extension TDPagedScrollView {
-    public func configureWithColoredViews(infiniteLoop: Bool = false) {
-        self.infiniteLoop = infiniteLoop
-
-        let colors: [UIColor] = [
-            UIColor(red: 0.2302, green: 0.7771, blue: 0.3159, alpha: 1.0),
-            .whiteColor(),
-            .blackColor(),
-            .grayColor(),
-            UIColor(red: 0.9862, green: 0.7797, blue: 0.0, alpha: 1.0),
-        ]
-
+    public func configureWithColoredViews(colors: [UIColor] = colors, infiniteLoop: Bool = false) {
         let colorToView: UIColor -> UIView = { color -> UIView in
             let view = UIView()
             view.backgroundColor = color
@@ -33,7 +32,7 @@ extension TDPagedScrollView {
             views.append(colorToView(firstColor))
         }
 
-        configureWithViews(views)
+        configureWithViews(views, infiniteLoop: infiniteLoop)
     }
 }
 
