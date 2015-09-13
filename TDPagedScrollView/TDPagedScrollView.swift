@@ -17,21 +17,33 @@ private let URLToImageView: NSURL -> UIImageView = { URL -> UIImageView in
 }
 
 extension TDPagedScrollView {
-    public func configureWithImages(images: [UIImage], infiniteLoop: Bool = false) {
+    public func configureWithImages(var images: [UIImage], infiniteLoop: Bool = false) {
+
+        if let first = images.first, last = images.last where infiniteLoop {
+            images.insert(last.copy() as! UIImage, atIndex: 0)
+            images.append(first.copy() as! UIImage)
+        }
 
         var views = images.map { return UIImageView(image: $0) }
 
         configureWithViews(views, infiniteLoop: infiniteLoop)
     }
 
-    public func configureWithImageURLs(imageURLs: [NSURL], infiniteLoop: Bool = false) {
+    public func configureWithImageURLs(var imageURLs: [NSURL], infiniteLoop: Bool = false) {
+
+        if let first = imageURLs.first, last = imageURLs.last where infiniteLoop {
+            imageURLs.insert(last.copy() as! NSURL, atIndex: 0)
+            imageURLs.append(first.copy() as! NSURL)
+        }
 
         var views = imageURLs.map(URLToImageView)
 
         configureWithViews(views, infiniteLoop: infiniteLoop)
     }
+}
 
-    public func configureWithViews(var views: [UIView], infiniteLoop: Bool = false) {
+extension TDPagedScrollView {
+    public func configureWithViews(views: [UIView], infiniteLoop: Bool = false) {
         clearSubviewsInScrollView()
 
         self.infiniteLoop = infiniteLoop
