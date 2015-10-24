@@ -18,8 +18,6 @@
 		75EC83021BA4F16E00F7C448 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; };
 		75EC83031BA4F16E00F7C448 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; };
 		75EC83051BA4F1B400F7C448 /* TDPagedScrollView+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC83041BA4F1B400F7C448 /* TDPagedScrollView+SampleData.swift */; };
-		75EC83071BA4F21100F7C448 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		75EC83081BA4F21100F7C448 /* WebImage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75EC83091BA4F23400F7C448 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; };
 		75EC830A1BA4F23400F7C448 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D31BA1AF1B00EB1487 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75EC830B1BA4F6B100F7C448 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7562C8D41BA1AF1B00EB1487 /* WebImage.framework */; };
@@ -62,18 +60,6 @@
 				75EC830A1BA4F23400F7C448 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75EC83061BA4F20200F7C448 /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				75EC83071BA4F21100F7C448 /* SnapKit.framework in Copy Frameworks */,
-				75EC83081BA4F21100F7C448 /* WebImage.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -252,7 +238,6 @@
 				75EC82DE1BA4F08A00F7C448 /* Frameworks */,
 				75EC82DF1BA4F08A00F7C448 /* Headers */,
 				75EC82E01BA4F08A00F7C448 /* Resources */,
-				75EC83061BA4F20200F7C448 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
